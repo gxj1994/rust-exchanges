@@ -193,7 +193,7 @@ fn parse_orderbook_side(data: &Value) -> Result<Vec<OrderBookEntry>> {
         // 支持两种格式：
         // 1. 现货: ["40001", "0.5"] (数组)
         // 2. 期货: {"p": "75798.6", "s": 52816} (对象)
-        
+
         let (price_str, amount_str) = if let Some(entry_array) = entry.as_array() {
             // 现货格式: [price, amount]
             if entry_array.len() < 2 {

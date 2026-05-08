@@ -39,8 +39,8 @@ pub fn create_okx_ws_client(is_sandbox: bool) -> OkxWsClient {
     // OKX 心跳配置：客户端主动发送，25 秒间隔（< 30s 要求）
     let ws_config = WsConfig {
         heartbeat_mode: HeartbeatMode::ClientInitiated,
-        heartbeat_interval: 25000,        // 25 秒
-        heartbeat_timeout: 30000,         // 30 秒超时（给予足够的响应时间）
+        heartbeat_interval: 25000,                  // 25 秒
+        heartbeat_timeout: 30000,                   // 30 秒超时（给予足够的响应时间）
         ping_message: Message::Text("ping".into()), // OKX 使用字符串 "ping"
         ..Default::default()
     };
@@ -81,8 +81,8 @@ pub fn create_okx_ws_client_auth(is_sandbox: bool, auth: OkxWsAuth) -> OkxWsClie
     // OKX 心跳配置：客户端主动发送，25 秒间隔
     let ws_config = WsConfig {
         heartbeat_mode: HeartbeatMode::ClientInitiated,
-        heartbeat_interval: 25000,        // 25 秒
-        heartbeat_timeout: 30000,         // 30 秒超时（给予足够的响应时间）
+        heartbeat_interval: 25000,                  // 25 秒
+        heartbeat_timeout: 30000,                   // 30 秒超时（给予足够的响应时间）
         ping_message: Message::Text("ping".into()), // OKX 使用字符串 "ping"
         ..Default::default()
     };

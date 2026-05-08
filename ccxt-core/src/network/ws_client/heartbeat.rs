@@ -153,7 +153,7 @@ impl HeartbeatManager {
                     // 使用 last_pong 或 last_ping 中较新的一个作为基准
                     let reference_time = if last_pong > 0 { last_pong } else { last_ping };
                     let elapsed = now - reference_time;
-                    
+
                     if elapsed > timeout_ms as i64 {
                         warn!(
                             elapsed_ms = elapsed,

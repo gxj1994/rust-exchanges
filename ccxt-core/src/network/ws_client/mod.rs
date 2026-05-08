@@ -292,7 +292,7 @@ impl WsClient {
                 // 重置统计信息，特别是 last_pong_time，避免使用旧连接的时间戳
                 // 这防止了新连接建立后立即被误判为 pong timeout
                 self.stats.reset();
-                self.heartbeat_manager.reset();  // 重置心跳状态
+                self.heartbeat_manager.reset(); // 重置心跳状态
 
                 self.set_state(WsConnectionState::Connected);
                 self.reconnect_count.store(0, Ordering::Release);

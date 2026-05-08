@@ -94,10 +94,10 @@ mod tests {
     fn test_gate_rate_limiter_clone() {
         let limiter = GateRateLimiter::new();
         assert_eq!(Arc::strong_count(&limiter.inner), 1); // 初始应该是 1
-        
+
         let cloned = limiter.clone();
         assert_eq!(Arc::strong_count(&limiter.inner), 2); // clone 后应该是 2
-        
+
         drop(cloned);
         assert_eq!(Arc::strong_count(&limiter.inner), 1); // drop 后应该回到 1
     }

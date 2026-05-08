@@ -155,18 +155,17 @@ impl SubscriptionManager {
             )));
         }
 
-        let state =
-            subscriptions
-                .entry(channel_key.clone())
-                .or_insert_with(|| SubscriptionState {
-                    info: SubscriptionInfo {
-                        channel: channel.clone(),
-                        symbol: symbol.clone(),
-                        params: params.clone(),
-                    },
-                    ref_count: 0,
-                    subscribers: Vec::new(),
-                });
+        let state = subscriptions
+            .entry(channel_key.clone())
+            .or_insert_with(|| SubscriptionState {
+                info: SubscriptionInfo {
+                    channel: channel.clone(),
+                    symbol: symbol.clone(),
+                    params: params.clone(),
+                },
+                ref_count: 0,
+                subscribers: Vec::new(),
+            });
 
         state.ref_count += 1;
         self.total_subscribers.fetch_add(1, Ordering::Relaxed);
